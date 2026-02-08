@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Islam - Perjalanan Cahaya Ilahi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #2ecc71;
+            --accent-color: #f1c40f;
+            --light-color: #f8f9fa;
+            --dark-color: #1a1a2e;
+            --text-color: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: linear-gradient(to bottom, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=20');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+        
+        /* Main Content */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin: 20px 0;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            width: 90%;
+            position: relative;
+            border-right: 5px solid var(--secondary-color);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-right: none;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content .period {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content .highlight {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--primary-color);
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: 50%;
+        }
+        
+        /* Audio Player */
+        .audio-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .audio-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .audio-player {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(to right, var(--primary-color), #2c3e50);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+        }
+        
+        .audio-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .audio-info i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        
+        .track-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .track-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .control-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            background-color: var(--secondary-color);
+        }
+        
+        .progress-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            flex-grow: 1;
+            cursor: pointer;
+            margin: 0 15px;
+        }
+        
+        .progress-bar {
+            background-color: var(--accent-color);
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+        }
+        
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .audio-tracks {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .track-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .track-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .track-item.active {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-right: 0;
+                padding-left: 80px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+            }
+            
+            .timeline-marker {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <h1>Sejarah <span>Islam</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#pra-kenabian">Pra Kenabian</a></li>
+                    <li><a href="#kenabian">Era Kenabian</a></li>
+                    <li><a href="#khulafaur">Khulafaur Rasyidin</a></li>
+                    <li><a href="#islamic-sounds">Sound Islami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Perjalanan Cahaya Ilahi</h2>
+            <p>Menyusuri sejarah panjang Islam dari masa pra-kenabian hingga penyebarannya ke seluruh penjuru dunia. Sebuah perjalanan spiritual yang mengubah peradaban manusia.</p>
+            <p><i>"Sesungguhnya telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu..." (QS. Al-Ahzab: 21)</i></p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Timeline Section -->
+        <section class="timeline-container" id="pra-kenabian">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Arab Pra-Islam (Jahiliyah)</h3>
+                    <span class="period">~570 M Sebelum Kenabian</span>
+                    <p>Sebelum kedatangan Islam, masyarakat Arab hidup dalam periode Jahiliyah (kebodohan). Penyembahan berhala merajalela dengan 360 patung di sekitar Ka'bah. Masyarakat terpecah menjadi suku-suku yang sering berperang, khususnya perang antar suku seperti Perang Basus yang berlangsung 40 tahun.</p>
+                    <p>Namun, ada segelintir orang yang tetap mempertahankan tauhid (Hanif) seperti Zaid bin Amr bin Nufail dan Waraqah bin Naufal. Kota Makkah menjadi pusat perdagangan dan keagamaan dengan Ka'bah sebagai porosnya.</p>
+                    <div class="highlight">
+                        Kondisi sosial yang penuh dengan ketidakadilan, perbudakan, penguburan bayi perempuan hidup-hidup, dan minum khamar menjadi latar belakang turunnya risalah Islam.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item" id="kenabian">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Kelahiran Nabi Muhammad SAW</h3>
+                    <span class="period">12 Rabiul Awal Tahun Gajah (570 M)</span>
+                    <p>Muhammad dilahirkan di Makkah pada Tahun Gajah, dinamai demikian karena pasukan gajah pimpinan Abrahah yang berusaha menghancurkan Ka'bah. Ayahnya, Abdullah, wafat sebelum kelahirannya. Ibunya, Aminah, wafat ketika Muhammad berusia 6 tahun.</p>
+                    <p>Diasuh oleh kakeknya Abdul Muthalib kemudian pamannya Abu Thalib. Sejak kecil dikenal dengan gelar <em>Al-Amin</em> (yang terpercaya). Pernah menjadi penggembala kambing kemudian berdagang hingga bertemu Khadijah yang kemudian menjadi istri pertamanya.</p>
+                    <div class="highlight">
+                        "Dan sungguh, engkau (Muhammad) berada di atas budi pekerti yang agung." (QS. Al-Qalam: 4)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Turunnya Wahyu Pertama</h3>
+                    <span class="period">17 Ramadan 610 M (Usia 40 tahun)</span>
+                    <p>Ketika berkhalwat di Gua Hira, Malaikat Jibril muncul dan memerintahkan Muhammad membaca. Turunlah wahyu pertama QS. Al-Alaq: 1-5. Peristiwa ini menandai dimulainya kenabian Muhammad SAW.</p>
+                    <p>Khadijah adalah orang pertama yang beriman, disusul Ali bin Abi Thalib (saat itu berusia 10 tahun), Zaid bin Haritsah, dan Abu Bakar Ash-Shiddiq. Dakwah dilakukan secara sembunyi-sembunyi selama 3 tahun di rumah Arqam bin Abil Arqam.</p>
+                    <div class="highlight">
+                        "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan, Dia telah menciptakan manusia dari segumpal darah." (QS. Al-Alaq: 1-2)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Dakwah Terang-terangan & Hijrah ke Habasyah</h3>
+                    <span class="period">613-622 M</span>
+                    <p>Setelah turun perintah untuk berdakwah secara terang-terangan (QS. Al-Hijr: 94), tekanan dari pemuka Quraisy semakin meningkat. Kaum Muslimin yang lemah disiksa seperti Bilal bin Rabah, keluarga Yasir, dan lainnya.</p>
+                    <p>Nabi mengizinkan sebagian sahabat hijrah ke Habasyah (Ethiopia) sebanyak dua gelombang (615 M). Raja Najasyi yang adil memberikan perlindungan setelah mendengar pembacaan Surah Maryam.</p>
+                    <div class="highlight">
+                        Tahun Duka Cita (619 M): Wafatnya Khadijah dan Abu Thalib, tahun paling sulit bagi Nabi sebelum hijrah.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Isra' Mi'raj & Bai'at Aqabah</h3>
+                    <span class="period">621-622 M</span>
+                    <p>Peristiwa Isra' dari Masjidil Haram ke Masjidil Aqsa kemudian Mi'raj ke Sidratul Muntaha terjadi pada tahun ke-11 kenabian. Nabi menerima perintah shalat 5 waktu secara langsung dari Allah.</p>
+                    <p>Bai'at Aqabah pertama (621 M) dan kedua (622 M) dengan penduduk Yatsrib (Madinah) menjadi pintu hijrah. 73 orang lelaki dan 2 perempuan dari suku Aus dan Khazraj berjanji setia melindungi Nabi.</p>
+                    <div class="highlight">
+                        "Maha Suci (Allah), yang telah memperjalankan hamba-Nya (Muhammad) pada malam hari dari Masjidil Haram ke Masjidil Aqsa..." (QS. Al-Isra: 1)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Hijrah ke Madinah & Pembentukan Negara Islam</h3>
+                    <span class="period">622 M (Tahun 1 H)</span>
+                    <p>Nabi hijrah bersama Abu Bakar Ash-Shiddiq, bersembunyi di Gua Tsur selama 3 hari. Tiba di Quba pada 12 Rabiul Awal, membangun masjid pertama (Masjid Quba).</p>
+                    <p>Di Madinah, Nabi membangun Piagam Madinah (Mitsaq al-Madinah) yang mengatur hubungan antara Muslim, Yahudi, dan suku-suku Arab. Mempersaudarakan Muhajirin dan Anshar, mendirikan masjid Nabawi sebagai pusat aktivitas.</p>
+                    <div class="highlight">
+                        Hijrah menandai awal kalender Islam dan transformasi Islam dari keyakinan pribadi menjadi peradaban dan negara.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Perang-Perang Penting & Fathu Makkah</h3>
+                    <span class="period">624-630 M</span>
+                    <p>Perang Badar (624 M/2 H): 313 muslim melawan 1000 Quraisy, kemenangan telak. Perang Uhud (625 M/3 H): kekalahan akibat ketidakdisiplinan pasukan pemanah. Perang Khandaq (627 M/5 H): pengepungan Madinah, ide parit dari Salman al-Farisi.
+                    <p>Perjanjian Hudaibiyah (628 M/6 H): gencatan senjata 10 tahun yang menjadi kemenangan diplomatik. Fathu Makkah (630 M/8 H): pembebasan Makkah tanpa pertumpahan darah, penghancuran berhala di sekitar Ka'bah.</p>
+                    <div class="highlight">
+                        "Sesungguhnya Kami telah memberikan kepadamu kemenangan yang nyata." (QS. Al-Fath: 1)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Haji Wada' & Wafatnya Nabi</h3>
+                    <span class="period">632 M (10-11 H)</span>
+                    <p>Haji Perpisahan (Haji Wada') tahun 10 H, dengan Khutbah Wada' yang berisi prinsip-prinsip utama Islam: kesetaraan manusia, larangan riba, hak-hak wanita, persatuan umat.</p>
+                    <p>Nabi wafat pada 12 Rabiul Awal 11 H (8 Juni 632 M) di usia 63 tahun. Dimakamkan di kamar Aisyah, sekarang menjadi bagian dari Masjid Nabawi. Meninggalkan warisan Al-Quran dan Sunnah sebagai pedoman hidup.</p>
+                    <div class="highlight">
+                        "Pada hari ini telah Aku sempurnakan agamamu untukmu, dan telah Aku cukupkan nikmat-Ku bagimu, dan telah Aku ridai Islam sebagai agamamu." (QS. Al-Maidah: 3)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item" id="khulafaur">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Kekhalifahan Abu Bakar Ash-Shiddiq</h3>
+                    <span class="period">632-634 M (11-13 H)</span>
+                    <p>Terpilih melalui musyawarah di Saqifah Bani Sa'idah. Menghadapi masalah besar: kemurtadan (riddah), nabi-nabi palsu (Musailamah al-Kadzzab, Tulaihah, Sajah), dan penolakan membayar zakat.</p>
+                    <p>Mengirim pasukan Usamah bin Zaid yang telah disiapkan Nabi. Membentuk tim kodifikasi Al-Quran pimpinan Zaid bin Tsabit setelah gugurnya banyak penghafal Quran di Perang Yamamah.</p>
+                    <div class="highlight">
+                        "Jika aku taat kepada Allah, taatlah kepadaku. Jika aku mendurhakai Allah, janganlah kalian taat kepadaku." (Abu Bakar Ash-Shiddiq)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Kekhalifahan Umar bin Khattab</h3>
+                    <span class="period">634-644 M (13-23 H)</span>
+                    <p>Ditunjuk oleh Abu Bakar sebelum wafat. Era ekspansi Islam terbesar: Syam (Yarmuk, 636 M), Persia (Qadisiyah, 637 M; Nahawand, 642 M), Mesir (Fustat, 641 M).</p>
+                    <p>Pembentukan sistem administratif: Baitul Mal, kalender Hijriyah, sistem pengadilan, sensus penduduk, pembangunan kota-kota garnisun (Kufah, Basrah, Fustat). Dijuluki Al-Faruq (pemisah antara hak dan batil).</p>
+                    <div class="highlight">
+                        Dibunuh oleh Abu Lu'luah (Fairuz), budak Persia, saat memimpin shalat Subuh. Wafat setelah dirawat 3 hari, memilih 6 orang formatur suksesi.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Kekhalifahan Utsman bin Affan</h3>
+                    <span class="period">644-656 M (24-35 H)</span>
+                    <p>Terpilih dari 6 formatur Umar. Penyatuan mushaf Al-Quran menjadi satu standar (Mushaf Utsmani) dan pengiriman salinannya ke berbagai wilayah.</p>
+                    <p>Ekspansi berlanjut: Armenia, Tripoli, Cyprus, perluasan di Persia dan Afrika Utara. Pembentukan armada laut muslim pertama. Munculnya ketidakpuasan karena kebijakan nepotisme dan gaya hidup elit.</p>
+                    <div class="highlight">
+                        Wafat syahid dibunuh pemberontak saat membaca Al-Quran di rumahnya. Peristiwa ini menandai awal Fitnatul Kubra (Bencana Besar) dalam sejarah Islam.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Kekhalifahan Ali bin Abi Thalib</h3>
+                    <span class="period">656-661 M (35-40 H)</span>
+                    <p>Diangkat setelah pembunuhan Utsman. Memindahkan ibu kota dari Madinah ke Kufah. Menghadapi pemberontakan Zubair, Talhah, dan Aisyah dalam Perang Jamal (656 M).</p>
+                    <p>Konflik dengan Muawiyah bin Abu Sufyan (gubernur Syam) dalam Perang Shiffin (657 M), arbitrase yang merugikan. Munculnya Khawarij (yang keluar) yang memberontak baik kepada Ali maupun Muawiyah. Dibunuh oleh Abdurrahman bin Muljam (Khawarij) saat shalat Subuh.</p>
+                    <div class="highlight">
+                        "Tidak ada pedang selain Dzulfiqar (pedang Ali), tidak ada pemuda selain Ali." (Pepatah Arab tentang keberanian Ali)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Section -->
+        <section class="audio-section" id="islamic-sounds">
+            <h2><i class="fas fa-music"></i> Sound Islami</h2>
+            <p>Dengarkan murottal Al-Quran dan nasyid islami sambil membaca sejarah perjalanan Islam</p>
+            
+            <div class="audio-player">
+                <div class="audio-info">
+                    <i class="fas fa-quran"></i>
+                    <div class="track-info">
+                        <h4 id="current-track">Al-Fatihah - Mishary Rashid Alafasy</h4>
+                        <p id="current-artist">Surat Pembuka Al-Quran</p>
+                    </div>
+                </div>
+                
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="time-display">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                
+                <div class="controls">
+                    <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button class="control-btn play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i></button>
+                    <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                </div>
+            </div>
+            
+            <div class="audio-tracks" id="track-list">
+                <div class="track-item active" data-index="0">
+                    <h4>Al-Fatihah</h4>
+                    <p>Abdurrahman As-Sudais</p>
+                </div>
+                <div class="track-item" data-index="1">
+                    <h4>Ayat Kursi</h4>
+                    <p>Yasser Al-Dossari</p>
+                </div>
+                <div class="track-item" data-index="2">
+                    <h4>Al-Ikhlas</h4>
+                    <p>Saad Al-Ghamdi</p>
+                </div>
+                <div class="track-item" data-index="3">
+                    <h4>Al-A'la</h4>
+                    <p>Abdurrahman As-Sudais</p>
+                </div>
+                <div class="track-item" data-index="4">
+                    <h4>Al-Qadr</h4>
+                    <p>Yasser Al-Dossari</p>
+                </div>
+                <div class="track-item" data-index="5">
+                    <h4>Adzan Mekah</h4>
+                    <p>Adzan Subuh Masjidil Haram</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sejarah Islam</h3>
+                    <p>Portal edukasi sejarah peradaban Islam dari masa ke masa. Menggali khazanah ilmu warisan para salafus shalih untuk inspirasi di masa kini.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Sumber referensi terpercaya dari kitab-kitab sejarah Islam</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Periode Penting</h3>
+                    <ul>
+                        <li><a href="#pra-kenabian">Arab Pra-Islam</a></li>
+                        <li><a href="#kenabian">Era Kenabian</a></li>
+                        <li><a href="#khulafaur">Khulafaur Rasyidin</a></li>
+                        <li><a href="#">Bani Umayyah</a></li>
+                        <li><a href="#">Bani Abbasiyah</a></li>
+                        <li><a href="#">Turki Utsmani</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Sumber Ilmu</h3>
+                    <ul>
+                        <li><a href="#">Sirah Nabawiyah - Ibnu Hisyam</a></li>
+                        <li><a href="#">Tarikh ath-Thabari</a></li>
+                        <li><a href="#">Al-Bidayah wan Nihayah</a></li>
+                        <li><a href="#">Mukhtashar Tarikh Dimasyq</a></li>
+                        <li><a href="#">Fi Zhilal Al-Quran</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sejarah Islam - Untuk Tujuan Edukasi dan Ilmu Pengetahuan</p>
+                <p>"Sampaikan dariku walau satu ayat" (HR. Bukhari)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Audio Player Functionality
+        const audioPlayer = {
+            currentTrackIndex: 0,
+            isPlaying: false,
+            audio: new Audio(),
+            
+            // Daftar track (gunakan URL audio Islami yang tersedia)
+            tracks: [
+                {
+                    title: "Al-Fatihah",
+                    artist: "Abdurrahman As-Sudais",
+                    src: "https://files.catbox.moe/2gdyda.mp3"
+                },
+                {
+                    title: "Ayat Kursi",
+                    artist: "Yasser Al-Dossari",
+                    src: "https://files.catbox.moe/q80wxz.mp3"
+                },
+                {
+                    title: "Al-Ikhlas",
+                    artist: "Saad Al-Ghamdi",
+                    src: "https://files.catbox.moe/e7c0dg.mp3"
+                },
+                {
+                    title: "Al-A'la",
+                    artist: "Abdurrahman As-Sudais",
+                    src: "https://files.catbox.moe/k0pj5u.mp3"
+                },
+                {
+                    title: "Al-Qadr",
+                    artist: "Yasser Al-Dossari",
+                    src: "https://files.catbox.moe/r0aogs.mp3"
+                },
+                {
+                    title: "Adzan Mekah",
+                    artist: "Adzan Subuh Masjidil Haram",
+                    src: "https://files.catbox.moe/e1w884.mp3"
+                }
+            ],
+            
+            init() {
+                this.audio = new Audio(this.tracks[0].src);
+                this.setupEventListeners();
+                this.updateTrackInfo();
+                
+                // Fallback jika audio eksternal error
+                this.audio.addEventListener('error', () => {
+                    console.log('Audio tidak dapat dimuat, menggunakan fallback...');
+                    // Tetap tampilkan UI player meski audio tidak tersedia
+                });
+            },
+            
+            setupEventListeners() {
+                const playBtn = document.getElementById('play-btn');
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const progressContainer = document.getElementById('progress-container');
+                const trackItems = document.querySelectorAll('.track-item');
+                
+                playBtn.addEventListener('click', () => this.togglePlay());
+                prevBtn.addEventListener('click', () => this.prevTrack());
+                nextBtn.addEventListener('click', () => this.nextTrack());
+                
+                this.audio.addEventListener('timeupdate', () => this.updateProgress());
+                this.audio.addEventListener('ended', () => this.nextTrack());
+                
+                progressContainer.addEventListener('click', (e) => {
+                    const width = progressContainer.clientWidth;
+                    const clickX = e.offsetX;
+                    const duration = this.audio.duration;
+                    
+                    this.audio.currentTime = (clickX / width) * duration;
+                });
+                
+                trackItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.getAttribute('data-index'));
+                        this.changeTrack(index);
+                    });
+                });
+                
+                // Update time display
+                this.audio.addEventListener('loadedmetadata', () => {
+                    this.updateTimeDisplay();
+                });
+                
+                this.audio.addEventListener('timeupdate', () => {
+                    this.updateTimeDisplay();
+                });
+            },
+            
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            },
+            
+            play() {
+                this.isPlaying = true;
+                this.audio.play();
+                document.getElementById('play-icon').classList.remove('fa-play');
+                document.getElementById('play-icon').classList.add('fa-pause');
+            },
+            
+            pause() {
+                this.isPlaying = false;
+                this.audio.pause();
+                document.getElementById('play-icon').classList.remove('fa-pause');
+                document.getElementById('play-icon').classList.add('fa-play');
+            },
+            
+            prevTrack() {
+                this.currentTrackIndex--;
+                if (this.currentTrackIndex < 0) {
+                    this.currentTrackIndex = this.tracks.length - 1;
+                }
+                this.changeTrack(this.currentTrackIndex);
+            },
+            
+            nextTrack() {
+                this.currentTrackIndex++;
+                if (this.currentTrackIndex >= this.tracks.length) {
+                    this.currentTrackIndex = 0;
+                }
+                this.changeTrack(this.currentTrackIndex);
+            },
+            
+            changeTrack(index) {
+                this.currentTrackIndex = index;
+                this.audio.src = this.tracks[index].src;
+                this.updateTrackInfo();
+                
+                if (this.isPlaying) {
+                    this.audio.play();
+                }
+                
+                // Update active track in list
+                document.querySelectorAll('.track-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`.track-item[data-index="${index}"]`).classList.add('active');
+            },
+            
+            updateTrackInfo() {
+                document.getElementById('current-track').textContent = this.tracks[this.currentTrackIndex].title;
+                document.getElementById('current-artist').textContent = this.tracks[this.currentTrackIndex].artist;
+            },
+            
+            updateProgress() {
+                const progressPercent = (this.audio.currentTime / this.audio.duration) * 100;
+                document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            },
+            
+            updateTimeDisplay() {
+                const currentTime = document.getElementById('current-time');
+                const duration = document.getElementById('duration');
+                
+                currentTime.textContent = this.formatTime(this.audio.currentTime);
+                duration.textContent = this.formatTime(this.audio.duration);
+            },
+            
+            formatTime(seconds) {
+                if (isNaN(seconds)) return "0:00";
+                
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+        };
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            audioPlayer.init();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Add visual effect to timeline markers on scroll
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'translateX(-50%) scale(1.2)';
+                        entry.target.style.transition = 'transform 0.3s ease';
+                        setTimeout(() => {
+                            entry.target.style.transform = 'translateX(-50%) scale(1)';
+                        }, 300);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.timeline-marker').forEach(marker => {
+                observer.observe(marker);
+            });
+        });
+    </script>
+</body>
+</html>
